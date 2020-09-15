@@ -9,8 +9,8 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new DefinePlugin({
-        GIT_HASH: JSON.stringify('1' || gitRevision('hash')),
-        GIT_BRANCH: JSON.stringify('1' || gitRevision('branch')),
+        GIT_HASH: JSON.stringify(gitRevision('hash')),
+        GIT_BRANCH: JSON.stringify(gitRevision('branch')),
         BUILD_DATE: JSON.stringify((new Date()).toLocaleString()),
         GA_ID: JSON.stringify(process.env.GA_ID)
       })
