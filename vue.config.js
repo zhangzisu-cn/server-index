@@ -11,8 +11,7 @@ module.exports = {
       new DefinePlugin({
         GIT_HASH: JSON.stringify(gitRevision('hash')),
         GIT_BRANCH: JSON.stringify(gitRevision('branch')),
-        BUILD_DATE: JSON.stringify((new Date()).toLocaleString()),
-        GA_ID: JSON.stringify(process.env.GA_ID)
+        BUILD_DATE: JSON.stringify((new Date()).toLocaleString())
       })
     ]
   }

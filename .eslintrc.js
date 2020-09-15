@@ -18,7 +18,6 @@ module.exports = {
   globals: {
     GIT_HASH: 'readonly',
     GIT_BRANCH: 'readonly',
-    BUILD_DATE: 'readonly',
-    GA_ID: 'readonly'
+    BUILD_DATE: 'readonly'
   }
 }
