@@ -11,7 +11,18 @@ module.exports = {
     plugins: [
       new FaviconsWebpackPlugin({
         HtmlWebpackPlugin: require('html-webpack-plugin'),
-        logo: './custom/logo.svg'
+        logo: './custom/logo.svg',
+        favicons: {
+          icons: {
+            android: false,
+            appleIcon: false,
+            appleStartup: false,
+            coast: false,
+            firefox: false,
+            windows: false,
+            yandex: false
+          }
+        }
       }),
       new DefinePlugin({
         GIT_HASH: JSON.stringify(gitRevision('hash')),
