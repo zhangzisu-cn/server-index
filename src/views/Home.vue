@@ -3,24 +3,13 @@
     <v-col cols="12" lg="6">
       <v-card>
         <v-list>
-          <v-list-item href="/qbt">
+          <v-list-item v-for="(service, i) in vars.services" :key="i" :href="service.link">
+            <v-list-item-avatar tile size="24">
+              <v-img contain :src="service.icon" v-if="service.icon"/>
+              <v-icon v-else>mdi-cog</v-icon>
+            </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title>qBittorrent</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item href="/syncthing">
-            <v-list-item-content>
-              <v-list-item-title>syncthing</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item href="/code">
-            <v-list-item-content>
-              <v-list-item-title>Code Server</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item href="/console">
-            <v-list-item-content>
-              <v-list-item-title>Cockpit</v-list-item-title>
+              <v-list-item-title>{{ service.name }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -31,8 +20,10 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import vars from '@/vars'
 
 @Component
 export default class Home extends Vue {
+  vars = vars
 }
 </script>
