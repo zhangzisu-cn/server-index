@@ -4,6 +4,7 @@ const gitRevision = require('git-revision')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
+  publicPath: '',
   transpileDependencies: [
     'vuetify'
   ],

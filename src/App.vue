@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app dense>
       <v-btn icon tile x-large href="https://zhangzisu.cn/" target="_blank">
         <v-avatar tile size="32">
           <v-img src="@/assets/logo.svg"/>
@@ -18,12 +18,12 @@
           <v-img src="@/../custom/logo.svg"/>
         </v-avatar>
       </v-btn>
-      <v-btn text x-large class="pa-0 text-left">
+      <div class="fakebtn pa-0 text-left">
         <div class="ma-2">
-          <div class="font-weight-bold">{{ vars.type }}</div>
-          <div class="text-overline" style="line-height: unset;">{{ vars.name }}</div>
+          <div class="font-weight-bold" style="font-size: 1rem; line-height: normal;">{{ vars.type }}</div>
+          <div class="text-overline" style="line-height: normal;">{{ vars.name }}</div>
         </div>
-      </v-btn>
+      </div>
     </v-app-bar>
     <v-main>
       <v-container fluid>
@@ -80,5 +80,23 @@ export default class App extends Vue {
   right: 0;
   bottom: 0;
   z-index: -1;
+}
+
+.fakebtn {
+  align-items: center;
+  border-radius: 4px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 500;
+  letter-spacing: 0.0892857143em;
+  justify-content: center;
+  outline: 0;
+  position: relative;
+  text-decoration: none;
+  text-indent: 0.0892857143em;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 </style>
