@@ -1,34 +1,51 @@
 <template>
   <v-app>
     <v-app-bar app dense>
-      <v-btn icon tile x-large href="https://zhangzisu.cn/" target="_blank">
-        <v-avatar tile size="32">
-          <v-img src="@/assets/logo.svg"/>
-        </v-avatar>
-      </v-btn>
-      <v-btn text x-large class="pa-0 text-left">
-        <div class="ma-2">
-          <div class="font-weight-bold">ZhangZisu.CN</div>
-          <div class="text-overline" style="line-height: unset;">Server Index</div>
-        </div>
-      </v-btn>
-      <v-divider vertical class="ml-2 mr-2"/>
-      <v-btn icon tile x-large>
-        <v-avatar tile size="32">
-          <v-img src="@/../custom/logo.svg"/>
-        </v-avatar>
-      </v-btn>
-      <div class="fakebtn pa-0 text-left">
-        <div class="ma-2">
-          <div class="font-weight-bold" style="font-size: 1rem; line-height: normal;">{{ vars.type }}</div>
-          <div class="text-overline" style="line-height: normal;">{{ vars.name }}</div>
-        </div>
-      </div>
+      <v-app-bar-nav-icon @click="drawer = !drawer"/>
     </v-app-bar>
+    <v-navigation-drawer app v-model="drawer">
+      <v-list nav>
+        <v-list-item href="https://zhangzisu.cn/" target="_blank">
+          <v-list-item-avatar tile size="32">
+            <v-img contain :src="require('@/assets/logo.svg')"/>
+          </v-list-item-avatar>
+          <v-list-item-content class="title">
+            <v-list-item-title class="font-weight-bold">ZhangZisu.CN</v-list-item-title>
+            <v-list-item-subtitle class="text-overline">Server Index</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/">
+          <v-list-item-avatar tile size="32">
+            <v-img contain :src="require('@/../custom/logo.svg')"/>
+          </v-list-item-avatar>
+          <v-list-item-content class="title">
+            <v-list-item-title class="font-weight-bold">{{ vars.type }}</v-list-item-title>
+            <v-list-item-subtitle class="text-overline">{{ vars.name }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-item-avatar tile size="32">
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>Services</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item v-for="(service, i) in vars.services" :key="i" :to="'/service/' + service.id">
+            <v-list-item-avatar tile size="32">
+              <v-img contain :src="service.icon" v-if="service.icon"/>
+              <v-icon v-else>mdi-cog</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>{{ service.name }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
     <v-main>
-      <v-container fluid>
-        <router-view/>
-      </v-container>
+      <router-view/>
     </v-main>
     <div id="z-bg">
       <!-- <v-img src="https://proxy.zhangzisu.cn/pximg/img-original/img/2019/04/09/21/13/01/74125498_p0.png" contain height="100%"/> -->
@@ -62,6 +79,8 @@ import vars from '@/vars'
 
 @Component
 export default class App extends Vue {
+  drawer = false
+
   build = {
     hash: GIT_HASH,
     branch: GIT_BRANCH,
@@ -82,21 +101,13 @@ export default class App extends Vue {
   z-index: -1;
 }
 
-.fakebtn {
-  align-items: center;
-  border-radius: 4px;
-  display: inline-flex;
-  flex: 0 0 auto;
-  font-weight: 500;
+.title {
   letter-spacing: 0.0892857143em;
-  justify-content: center;
-  outline: 0;
-  position: relative;
   text-decoration: none;
   text-indent: 0.0892857143em;
   text-transform: uppercase;
-  user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  font-weight: 500;
 }
 </style>

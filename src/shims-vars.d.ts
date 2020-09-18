@@ -1,7 +1,7 @@
 declare module "@/../custom/vars.js" {
   interface IServices {
+    id: string
     name: string
-    link: string
     icon?: string
   }
   interface IVar {
