@@ -29,16 +29,16 @@
               <v-icon>mdi-cog</v-icon>
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title>Services</v-list-item-title>
+              <v-list-item-title>Apps</v-list-item-title>
             </v-list-item-content>
           </template>
-          <v-list-item v-for="(service, i) in vars.services" :key="i" :to="'/service/' + service.id">
+          <v-list-item v-for="(app, i) in vars.apps" :key="i" :to="'/app/' + app.id">
             <v-list-item-avatar tile size="32">
-              <v-img contain :src="service.icon" v-if="service.icon"/>
+              <v-img contain :src="app.icon" v-if="app.icon"/>
               <v-icon v-else>mdi-cog</v-icon>
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title>{{ service.name }}</v-list-item-title>
+              <v-list-item-title>{{ app.name }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>

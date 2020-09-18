@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '@/views/Home.vue'
-import Service from '@/views/Service.vue'
+import App from '@/views/App.vue'
 
 Vue.use(VueRouter)
 
@@ -11,8 +11,8 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: '/service/:id',
-    component: Service,
+    path: '/app/:id',
+    component: App,
     props: route => route.params
   }
 ]

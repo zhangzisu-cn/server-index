@@ -4,13 +4,13 @@
       <v-col cols="12" lg="6">
         <v-card>
           <v-list>
-            <v-list-item v-for="(service, i) in vars.services" :key="i" :href="'/' + service.id">
+            <v-list-item v-for="(app, i) in vars.apps" :key="i" :href="app.link">
               <v-list-item-avatar tile size="24">
-                <v-img contain :src="service.icon" v-if="service.icon"/>
+                <v-img contain :src="app.icon" v-if="app.icon"/>
                 <v-icon v-else>mdi-cog</v-icon>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title>{{ service.name }}</v-list-item-title>
+                <v-list-item-title>{{ app.name }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
