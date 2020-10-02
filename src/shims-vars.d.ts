@@ -1,4 +1,4 @@
-declare module "@/../custom/vars.js" {
+declare module '@/../custom/vars.js' {
   interface IApp {
     id: string
     name: string
